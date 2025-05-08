@@ -8,6 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 if User.where(email: 'admin@example.com').blank?
-
   User.new(email: 'admin@example.com', password: 'Password123').save
 end
