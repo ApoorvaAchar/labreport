@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Test parameter ref ranges" %>
+
+<h1>Test parameter ref ranges</h1>
+
+<div id="test_parameter_ref_ranges">
+  <% @test_parameter_ref_ranges.each do |test_parameter_ref_range| %>
+    <%= render test_parameter_ref_range %>
+    <p>
+      <%= link_to "Show this test parameter ref range", test_parameter_ref_range %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New test parameter ref range", new_test_parameter_ref_range_path %>

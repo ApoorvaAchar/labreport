@@ -1,0 +1,37 @@
+<%= form_with(model: test_parameter_ref_range) do |form| %>
+  <% if test_parameter_ref_range.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(test_parameter_ref_range.errors.count, "error") %> prohibited this test_parameter_ref_range from being saved:</h2>
+
+      <ul>
+        <% test_parameter_ref_range.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :lower_limit, style: "display: block" %>
+    <%= form.text_field :lower_limit %>
+  </div>
+
+  <div>
+    <%= form.label :upper_limit, style: "display: block" %>
+    <%= form.text_field :upper_limit %>
+  </div>
+
+  <div>
+    <%= form.label :color, style: "display: block" %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div>
+    <%= form.label :result_type, style: "display: block" %>
+    <%= form.text_field :result_type %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

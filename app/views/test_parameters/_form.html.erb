@@ -1,0 +1,47 @@
+<%= form_with(model: test_parameter) do |form| %>
+  <% if test_parameter.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(test_parameter.errors.count, "error") %> prohibited this test_parameter from being saved:</h2>
+
+      <ul>
+        <% test_parameter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :key, style: "display: block" %>
+    <%= form.text_field :key %>
+  </div>
+
+  <div>
+    <%= form.label :cause_effect, style: "display: block" %>
+    <%= form.text_area :cause_effect %>
+  </div>
+
+  <div>
+    <%= form.label :what_can_do, style: "display: block" %>
+    <%= form.text_area :what_can_do %>
+  </div>
+
+  <div>
+    <%= form.label :did_you_konw, style: "display: block" %>
+    <%= form.text_area :did_you_konw %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

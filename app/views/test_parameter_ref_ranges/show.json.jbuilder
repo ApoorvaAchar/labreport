@@ -1,0 +1,1 @@
+json.partial! "test_parameter_ref_ranges/test_parameter_ref_range", test_parameter_ref_range: @test_parameter_ref_range

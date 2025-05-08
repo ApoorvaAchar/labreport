@@ -1,0 +1,12 @@
+<% content_for :title, "Editing test parameter" %>
+
+<h1>Editing test parameter</h1>
+
+<%= render "form", test_parameter: @test_parameter %>
+
+<br>
+
+<div>
+  <%= link_to "Show this test parameter", @test_parameter %> |
+  <%= link_to "Back to test parameters", test_parameters_path %>
+</div>

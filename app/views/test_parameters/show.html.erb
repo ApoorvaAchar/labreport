@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @test_parameter %>
+
+<div>
+  <%= link_to "Edit this test parameter", edit_test_parameter_path(@test_parameter) %> |
+  <%= link_to "Back to test parameters", test_parameters_path %>
+
+  <%= button_to "Destroy this test parameter", @test_parameter, method: :delete %>
+</div>

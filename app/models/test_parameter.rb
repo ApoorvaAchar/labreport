@@ -1,0 +1,2 @@
+class TestParameter < ApplicationRecord
+end
