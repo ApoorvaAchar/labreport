@@ -23,5 +23,14 @@ module Labreport
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.to_prepare do
+        Devise::SessionsController.layout "frontend"
+        Devise::RegistrationsController.layout "frontend"
+        Devise::ConfirmationsController.layout "frontend"
+        Devise::UnlocksController.layout "frontend"
+        Devise::PasswordsController.layout "frontend"
+    end
+
   end
 end

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :test_parameter_ref_ranges
-  resources :test_parameters
-  resources :lab_tests
+  
+  resources :lab_tests do 
+    resources :test_parameters  do 
+      resources :test_parameter_ref_ranges
+    end
+  end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,5 +17,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "website#index"
 end

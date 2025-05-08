@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for(:title) || "Labreport" %></title>
+ 
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+</head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+              <a class="navbar-brand fw-bold" href="#">Laboratory</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                  <% if current_user %>
+                    <li class="nav-item">
+                        <%= link_to "Lab Tests", lab_tests_path, class: 'nav-link' %>
+                    </li>
+                  <%end%>  
+                </ul>
+                <div class="d-flex">
+                  <% if current_user %>
+                    <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-outline-light" %>
+                  <%else%>
+                    <%= link_to "Sign IN", new_user_session_path, class: "btn btn-outline-light" %>
+                  <%end%>
+                </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-md-12">
+       <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: 'alert alert-primary p-2', :id => "flash_#{name}" if msg.is_a?(String) %>
+        <%- end -%>  
+        <%= yield %>
+      </div>
+    </div>
+  </main>
+  </body>
+</html>

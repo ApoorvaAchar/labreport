@@ -1,4 +1,4 @@
-class TestParameterRefRangesController < ApplicationController
+class TestParameterRefRangesController < FrontBaseController
   before_action :set_test_parameter_ref_range, only: %i[ show edit update destroy ]
 
   # GET /test_parameter_ref_ranges or /test_parameter_ref_ranges.json

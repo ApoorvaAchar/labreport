@@ -1,4 +1,4 @@
-class LabTestsController < ApplicationController
+class LabTestsController < FrontBaseController
   before_action :set_lab_test, only: %i[ show edit update destroy ]
 
   # GET /lab_tests or /lab_tests.json
@@ -25,7 +25,7 @@ class LabTestsController < ApplicationController
 
     respond_to do |format|
       if @lab_test.save
-        format.html { redirect_to @lab_test, notice: "Lab test was successfully created." }
+        format.html { redirect_to lab_tests_path, notice: "Lab test was successfully created." }
         format.json { render :show, status: :created, location: @lab_test }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LabTestsController < ApplicationController
   def update
     respond_to do |format|
       if @lab_test.update(lab_test_params)
-        format.html { redirect_to @lab_test, notice: "Lab test was successfully updated." }
+        format.html { redirect_to lab_tests_path, notice: "Lab test was successfully updated." }
         format.json { render :show, status: :ok, location: @lab_test }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class LabTestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lab_test_params
-      params.require(:lab_test).permit(:name)
+      params.require(:lab_test).permit(:name, :key)
     end
 end

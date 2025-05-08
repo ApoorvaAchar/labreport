@@ -1,16 +1,40 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Lab tests" %>
 
-<h1>Lab tests</h1>
-
-<div id="lab_tests">
-  <% @lab_tests.each do |lab_test| %>
-    <%= render lab_test %>
-    <p>
-      <%= link_to "Show this lab test", lab_test %>
-    </p>
-  <% end %>
+<div class='float-start'>
+  <h2>Lab tests</h2>
 </div>
 
-<%= link_to "New lab test", new_lab_test_path %>
+<div class='float-end'>
+  <%= link_to "New lab test", new_lab_test_path, class: 'btn btn-sm btn-primary' %>
+</div>
+
+<div class='clearfix'></div>
+
+
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr class='table-primary'>
+      <th>Lab Test</th>
+      <th>Test Key</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lab_tests.each do |lab_test| %>
+      <tr>
+        <td><%= lab_test.name %> </td>
+        <td><%= lab_test.key %> </td>
+        <td class='text-end'><%= link_to "Details", lab_test, class: 'btn btn-sm btn-primary' %> </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+ 
+  
+   
+ 
+
+
