@@ -59,3 +59,6 @@ end
 gem 'devise'
 gem 'simple_form'
 gem 'jquery-rails'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

@@ -1,11 +1,33 @@
+<div class='float-start'>
+  <h2>
+    <%= @lab_test.name %>
+  </h2>
+  <h4>
+    <%= @test_parameter.name %>
+    <%= " - " %>
+
+    Add
+  </h4>
+</div>
+
+<div class='float-end'>
+  <%= link_to "Lab Test Detail", @lab_test, class: 'btn btn-sm btn-dark' %>
+</div>
+
+<div class='clearfix'></div>
+
+
 <%= simple_form_for([@lab_test, @test_parameter, @parameter_ref_range]) do |f| %>
-  
-
-  <div class="row">
-    <div class="col-md-6"><%= f.input :lower_limit %></div>
-    <div class="col-md-6"><%= f.input :upper_limit %></div>
-  </div>
-
+  <% if @test_parameter.parameter_type == 'string' %>
+    <div class="row">
+      <div class="col-md-6"><%= f.input :result, required: true %></div>
+    </div>
+  <%else%>
+    <div class="row">
+      <div class="col-md-6"><%= f.input :lower_limit, required: true %></div>
+      <div class="col-md-6"><%= f.input :upper_limit , required: true%></div>
+    </div>
+  <%end%>  
 
   <div class="row">
     <div class="col-md-6"><%= f.input :color %></div>

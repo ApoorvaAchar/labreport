@@ -63,7 +63,7 @@ class ParameterRefRangesController < FrontBaseController
 
     # Only allow a list of trusted parameters through.
     def parameter_ref_range_params
-      params.require(:parameter_ref_range).permit(:lower_limit, :upper_limit, :color, :result_type)
+      params.require(:parameter_ref_range).permit(:lower_limit, :upper_limit, :color, :result_type, :result)
     end
 
     def find_test_parameter

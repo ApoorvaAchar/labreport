@@ -42,4 +42,6 @@
     margin-bottom: 1rem;
 }
 
- 
+abbr {
+    color: red;  /* This will make the * red */
+}

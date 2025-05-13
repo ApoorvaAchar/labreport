@@ -25,25 +25,35 @@
       </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body p-0">
       
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Lower Limit</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <% if test_parameter.parameter_type == 'string' %>
+              <th scope="col">Result</th>
+            <%else%>
+              <th scope="col">Lower Limit</th>
+              <th scope="col">Upper Limit</th>
+            <%end%>  
+            <th scope="col">Result Type</th>
+            <th scope="col">Color</th>
+            <th scope="col"></th>
           </tr>
         </thead>
 
         <tbody>
           <% test_parameter.parameter_ref_ranges.each do |pr| %>
             <tr>
-              <td><%= pr.lower_limit %></td>
-              <td><%= pr.upper_limit %></td>
+              <% if test_parameter.parameter_type == 'string' %>
+                <td><%= pr.result %></td>
+              <%else%>
+                <td><%= pr.lower_limit %></td>
+                <td><%= pr.upper_limit %></td>
+              <%end%>  
               <td><%= pr.result_type %></td>
               <td><%= pr.color %></td>
+              <td class="text-end"><%= link_to "Edit", edit_lab_test_test_parameter_parameter_ref_range_path(@lab_test, test_parameter, pr.id) %></td>
             </tr>
           <%end%>
         </tbody>
