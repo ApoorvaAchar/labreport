@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :test_results
   
   resources :lab_tests do 
     resources :test_parameters  do 
