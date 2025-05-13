@@ -67,7 +67,7 @@ class ParameterRefRangesController < FrontBaseController
     end
 
     def find_test_parameter
-      @test_parameter = @lab_test.test_parameters.find(params[:lab_test_id])
+      @test_parameter = @lab_test.test_parameters.find(params[:test_parameter_id])
     end
 
 
