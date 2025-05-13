@@ -25,7 +25,7 @@ class LabTestsController < FrontBaseController
 
     respond_to do |format|
       if @lab_test.save
-        format.html { redirect_to lab_tests_path, notice: "Lab test was successfully created." }
+        format.html { redirect_to lab_test_path(@lab_test.id), notice: "Lab test was successfully created." }
         format.json { render :show, status: :created, location: @lab_test }
       else
         format.html { render :new, status: :unprocessable_entity }

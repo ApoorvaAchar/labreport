@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p class="text-muted">Please enter your credentials to login</p>
+        </div>
+        
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :floating_labels_form) do |f| %>
+     
+              <%= f.input :email,
+                required: false,  wrapper: :floating_labels_form,
+                input_html: { autocomplete: "email" } %>
+            
+          
+          <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" } %>
+          
+           
+          <button type="submit" class="btn btn-primary w-100 btn-login">Log In</button>
+      <% end %>
+    </div>
+  </div>
+</div>   
+
+

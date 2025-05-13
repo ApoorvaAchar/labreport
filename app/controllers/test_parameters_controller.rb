@@ -1,4 +1,5 @@
 class TestParametersController < FrontBaseController
+  before_action :find_lab_test
   before_action :set_test_parameter, only: %i[ show edit update destroy ]
 
   # GET /test_parameters or /test_parameters.json

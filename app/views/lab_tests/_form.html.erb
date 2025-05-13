@@ -1,9 +1,26 @@
-<%= simple_form_for(@lab_test) do |form| %>
+<div class='float-start'>
+  <h2>
+    <%= @lab_test.new_record? ? "New Lab Test" : "Edit Lab Test" %>
+  </h2>
+</div>
 
-  <%= form.input :name %>
-  <%= form.input :key %>
+<div class='float-end'>
+  <%= link_to "Back to lab tests", lab_tests_path, class: 'btn btn-sm btn-dark' %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class='clearfix'></div>
+
+
+
+<div class="col-md-6">
+
+  <%= simple_form_for(@lab_test, ) do |form| %>
+    
+    <%= form.input :name %>
+    <%= form.input :key %>
+
+   
+    <%= form.submit class: 'btn btn-primary' %>
+   
+  <% end %>
+</div>  

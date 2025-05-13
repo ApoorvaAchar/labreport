@@ -1,14 +1,15 @@
  
-<div>
-  <%= link_to "Edit this lab test", edit_lab_test_path(@lab_test) %> |
-  <%= link_to "Back to lab tests", lab_tests_path %>
+<div class='float-end'>
+  <%= link_to "Edit this lab test", edit_lab_test_path(@lab_test), class: 'btn btn-sm btn-primary' %> 
 
- 
+  <%= link_to "Add Parameter", new_lab_test_test_parameter_path(@lab_test), class: 'btn btn-sm btn-success' %> 
+  <%= link_to "Back to lab tests", lab_tests_path, class: 'btn btn-sm btn-dark' %>
 </div>
 
  
+<div class="clearfix"></div> 
 
-<div class="card">
+<div class="card mt-1">
   <div class="card-header">
     <%= @lab_test.name %>
     -
