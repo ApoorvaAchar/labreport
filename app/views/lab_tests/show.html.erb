@@ -1,29 +1,54 @@
- 
+<div class='float-start'>
+  <%= @lab_test.name %>
+  <div class='text-body-secondary'><%= @lab_test.key %></div>
+</div> 
+
+
 <div class='float-end'>
   <%= link_to "Edit this lab test", edit_lab_test_path(@lab_test), class: 'btn btn-sm btn-primary' %> 
-
   <%= link_to "Add Parameter", new_lab_test_test_parameter_path(@lab_test), class: 'btn btn-sm btn-success' %> 
   <%= link_to "Back to lab tests", lab_tests_path, class: 'btn btn-sm btn-dark' %>
 </div>
 
+<div class="clearfix"></div>
  
-<div class="clearfix"></div> 
-
-<div class="card mt-1">
-  <div class="card-header">
-    <%= @lab_test.name %>
-    -
-    <%= @lab_test.key %>
-  </div>
-  <div class="card-body">
-    <% @lab_test.test_parameters.each do |test_parameter| %>
-      
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
+ 
+<% @lab_test.test_parameters.each do |test_parameter| %>
+  <div class="card mb-1">
+    <div class="card-header">
+      <div class='float-start'>
+        <%= test_parameter.name %>
+      </div>  
+      <div class='float-end'>
+        <%= link_to "Edit Parameter", edit_lab_test_test_parameter_path(@lab_test, test_parameter) %>
+        <%= link_to "Add Ref Range", new_lab_test_test_parameter_parameter_ref_range_path(@lab_test, test_parameter) %>
       </div>
+    </div>
+
+    <div class="card-body">
       
-    <%end%>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Lower Limit</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% test_parameter.parameter_ref_ranges.each do |pr| %>
+            <tr>
+              <td><%= pr.lower_limit %></td>
+              <td><%= pr.upper_limit %></td>
+              <td><%= pr.result_type %></td>
+              <td><%= pr.color %></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+<%end%>
+ 

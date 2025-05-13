@@ -1,2 +1,0 @@
-class TestParameterRefRange < ApplicationRecord
-end

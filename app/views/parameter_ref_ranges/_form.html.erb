@@ -1,0 +1,18 @@
+<%= simple_form_for([@lab_test, @test_parameter, @parameter_ref_range]) do |f| %>
+  
+
+  <div class="row">
+    <div class="col-md-6"><%= f.input :lower_limit %></div>
+    <div class="col-md-6"><%= f.input :upper_limit %></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6"><%= f.input :color %></div>
+    <div class="col-md-6"><%= f.input :result_type %></div>
+  </div>
+
+
+  <%= f.submit "Save", class: 'btn btn-primary' %>
+   
+<% end %>

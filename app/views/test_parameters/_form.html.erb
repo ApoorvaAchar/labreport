@@ -1,26 +1,32 @@
+<div class='float-start'>
+  <h2>
+    <%= @lab_test.name %>
+    <%= " - " %>  
+    <%= @test_parameter.new_record? ? "Add New Parameter" : "Edit New Parameter" %>
+  </h2>
+</div>
+
+<div class='float-end'>
+  <%= link_to "Lab Test Detail", @lab_test, class: 'btn btn-sm btn-dark' %>
+</div>
+
+<div class='clearfix'></div>
+
+
 <%= simple_form_for([@lab_test, @test_parameter]) do |f| %>
-  <% if @test_parameter.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(test_parameter.errors.count, "error") %> prohibited this test_parameter from being saved:</h2>
-
-      <ul>
-        <% @test_parameter.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
+  <div class="row">
+    <div class="col-md-6"><%= f.input :name %></div>
+    <div class="col-md-6"><%= f.input :key %></div>
+  </div>
+  
+  <%= f.input :parameter_type, collection: [["Decimal", 'number'], ["String", "string"]]%>
   <%= f.input :description %>
-  <%= f.input :name %>
-  <%= f.input :key %>
   <%= f.input :cause_effect %>
   <%= f.input :what_can_do %>
   <%= f.input :did_you_konw %>
 
 
 
-    <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit "Save", class: 'btn btn-primary' %>
 
 <% end %>

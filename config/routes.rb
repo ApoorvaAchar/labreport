@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :lab_tests do 
     resources :test_parameters  do 
-      resources :test_parameter_ref_ranges
+      resources :parameter_ref_ranges
     end
   end
   devise_for :users

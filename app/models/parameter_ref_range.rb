@@ -1,0 +1,2 @@
+class ParameterRefRange < ApplicationRecord
+end

@@ -22,11 +22,11 @@ class TestParametersController < FrontBaseController
 
   # POST /test_parameters or /test_parameters.json
   def create
-    @test_parameter = TestParameter.new(test_parameter_params)
+    @test_parameter = @lab_test.test_parameters.new(test_parameter_params)
 
     respond_to do |format|
       if @test_parameter.save
-        format.html { redirect_to @test_parameter, notice: "Test parameter was successfully created." }
+        format.html { redirect_to @lab_test, notice: "Test parameter was successfully created." }
         format.json { render :show, status: :created, location: @test_parameter }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class TestParametersController < FrontBaseController
   def update
     respond_to do |format|
       if @test_parameter.update(test_parameter_params)
-        format.html { redirect_to @test_parameter, notice: "Test parameter was successfully updated." }
+        format.html { redirect_to @lab_test, notice: "Test parameter was successfully updated." }
         format.json { render :show, status: :ok, location: @test_parameter }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,11 +61,11 @@ class TestParametersController < FrontBaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_test_parameter
-      @test_parameter = TestParameter.find(params[:id])
+      @test_parameter = @lab_test.test_parameters.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def test_parameter_params
-      params.require(:test_parameter).permit(:description, :name, :key, :cause_effect, :what_can_do, :did_you_konw)
+      params.require(:test_parameter).permit(:description, :name, :key, :cause_effect, :what_can_do, :did_you_konw, :parameter_type)
     end
 end
