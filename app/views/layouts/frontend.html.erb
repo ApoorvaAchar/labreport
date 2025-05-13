@@ -22,8 +22,13 @@
                 <ul class="navbar-nav me-auto">
                   <% if current_user %>
                     <li class="nav-item">
-                        <%= link_to "Lab Tests", lab_tests_path, class: 'nav-link' %>
+                      <%= link_to "Lab Tests", lab_tests_path, class: 'nav-link' %>
                     </li>
+
+                    <li class="nav-item">
+                      <%= link_to "Lab Test Result", test_results_path, class: 'nav-link' %>
+                    </li>
+
                   <%end%>  
                 </ul>
                 <div class="d-flex">

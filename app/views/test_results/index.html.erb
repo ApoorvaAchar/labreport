@@ -1,0 +1,31 @@
+
+<div class='float-start'>
+  <h2>Test results</h2>
+</div> 
+
+<div class="clearfix"></div>
+
+ 
+<table class="table table-hover table-striped">
+  <thead>
+    <tr class='table-primary'>
+      <th>Result Received </th>
+      <th>Patient Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @test_results.each do |test_result| %>
+      <tr>
+        <td><%= datetime_format(lab_test.created_at) %> </td>
+        <td><%= lab_test.patient_name %> </td>
+        <td></td>
+        <td class='text-end'><%= link_to "Details", lab_test, class: 'btn btn-sm btn-primary' %> </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+<%= will_paginate(@test_results) %>
