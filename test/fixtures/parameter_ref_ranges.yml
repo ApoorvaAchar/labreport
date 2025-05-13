@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_parameter_id: 1
+  lower_limit: 9.99
+  upper_limit: 9.99
+  color: MyString
+  result_type: MyString
+
+two:
+  test_parameter_id: 1
+  lower_limit: 9.99
+  upper_limit: 9.99
+  color: MyString
+  result_type: MyString
