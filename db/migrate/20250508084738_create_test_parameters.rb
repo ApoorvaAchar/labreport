@@ -1,6 +1,7 @@
 class CreateTestParameters < ActiveRecord::Migration[7.2]
   def change
     create_table :test_parameters do |t|
+      t.integer :lab_test_id
       t.string :description
       t.string :name
       t.string :key
@@ -10,5 +11,6 @@ class CreateTestParameters < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
+    add_index :test_parameters, :lab_test_id
   end
 end

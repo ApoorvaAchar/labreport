@@ -38,7 +38,7 @@ class LabTestsController < FrontBaseController
   def update
     respond_to do |format|
       if @lab_test.update(lab_test_params)
-        format.html { redirect_to lab_tests_path, notice: "Lab test was successfully updated." }
+        format.html { redirect_to lab_test_path(@lab_test), notice: "Lab test was successfully updated." }
         format.json { render :show, status: :ok, location: @lab_test }
       else
         format.html { render :edit, status: :unprocessable_entity }

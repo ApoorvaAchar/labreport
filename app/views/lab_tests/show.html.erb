@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @lab_test %>
-
+ 
 <div>
   <%= link_to "Edit this lab test", edit_lab_test_path(@lab_test) %> |
   <%= link_to "Back to lab tests", lab_tests_path %>
 
-  <%= button_to "Destroy this lab test", @lab_test, method: :delete %>
+ 
+</div>
+
+ 
+
+<div class="card">
+  <div class="card-header">
+    <%= @lab_test.name %>
+    -
+    <%= @lab_test.key %>
+  </div>
+  <div class="card-body">
+    <% @lab_test.test_parameters.each do |test_parameter| %>
+      
+      <div class="card">
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+      
+    <%end%>
+  </div>
 </div>
