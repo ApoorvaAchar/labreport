@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min.css
+ *= require new_ckeditor/ckeditor.css
  */
 
  
@@ -44,4 +45,9 @@
 
 abbr {
     color: red;  /* This will make the * red */
+}
+
+
+.ck-editor__editable {
+  min-height: 200px;
 }

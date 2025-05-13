@@ -26,6 +26,30 @@
     </div>
 
     <div class="card-body p-0">
+
+      <div class='p-2'>
+        <div>
+          <p class='mb-0'><b>Description</b></p>
+          <%= test_parameter.description.to_s.html_safe %>
+        </div>
+
+        <div>
+          <p class='mb-0'><b>cause_effect</b></p>
+          <%= test_parameter.cause_effect.to_s.html_safe %>
+        </div>
+
+        <div>
+          <p class='mb-0'><b>what_can_do</b></p>
+          <%= test_parameter.what_can_do.to_s.html_safe %>
+        </div>
+
+        <div>
+          <p class='mb-0'><b>did_you_konw</b></p>
+          <%= test_parameter.did_you_konw.to_s.html_safe %>
+        </div>
+
+      </div>  
+
       
       <table class="table table-hover">
         <thead>

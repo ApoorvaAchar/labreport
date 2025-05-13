@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "file_uploads/upload"
   resources :test_results
   
   resources :lab_tests do 

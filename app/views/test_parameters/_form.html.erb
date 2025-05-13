@@ -1,3 +1,8 @@
+<%= content_for :js do %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <div class='float-start'>
   <h2>
     <%= @lab_test.name %>
@@ -20,10 +25,10 @@
   </div>
   
   <%= f.input :parameter_type, collection: [["Decimal", 'number'], ["String", "string"]]%>
-  <%= f.input :description %>
-  <%= f.input :cause_effect %>
-  <%= f.input :what_can_do %>
-  <%= f.input :did_you_konw %>
+  <%= f.input :description, as: :ckeditor %>
+  <%= f.input :cause_effect, as: :ckeditor %>
+  <%= f.input :what_can_do, as: :ckeditor %>
+  <%= f.input :did_you_konw, as: :ckeditor %>
 
 
 

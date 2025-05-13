@@ -65,3 +65,5 @@ gem 'wkhtmltopdf-binary'
 
 gem 'carrierwave', '~> 3.0'
 gem 'will_paginate', '~> 4.0'
+
+gem 'new_ckeditor'
