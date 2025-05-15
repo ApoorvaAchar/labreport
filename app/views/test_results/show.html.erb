@@ -1,10 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<div class='float-start'>
+  <h4><%= @test_result.patient_name %></h4>
+  <div class='text-body-secondary'><%= @test_result.uuid %></div>
+</div> 
 
-<%= render @test_result %>
+<div class='float-end'>
+  <%= link_to "Generate PDF", generate_pdf_test_result_path(@test_result), class: 'btn btn-sm btn-success', target: "_blank" %>
+  <%= link_to "Back", test_results_path, class: 'btn btn-sm btn-dark' %>
+</div>
 
-<div>
-  <%= link_to "Edit this test result", edit_test_result_path(@test_result) %> |
-  <%= link_to "Back to test results", test_results_path %>
+<div class="clearfix"></div>
+ 
 
-  <%= button_to "Destroy this test result", @test_result, method: :delete %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Supplied Data</h5>
+
+    <pre>
+      <code>
+        <%= JSON.pretty_generate(@test_result.result) %>
+      </code>
+    </pre> 
+  </div>
 </div>

@@ -50,7 +50,7 @@ class ParameterRefRangesController < FrontBaseController
     @parameter_ref_range.destroy!
 
     respond_to do |format|
-      format.html { redirect_to parameter_ref_ranges_path, status: :see_other, notice: "Test parameter ref range was successfully destroyed." }
+      format.html { redirect_to @lab_test, status: :see_other, notice: "Test parameter ref range was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -58,7 +58,7 @@ class ParameterRefRangesController < FrontBaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_parameter_ref_range
-      @parameter_ref_range = ParameterRefRange.find(params[:id])
+      @parameter_ref_range = @test_parameter.parameter_ref_ranges.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

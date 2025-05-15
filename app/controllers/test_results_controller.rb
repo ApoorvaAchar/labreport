@@ -1,5 +1,5 @@
 class TestResultsController < FrontBaseController
-  before_action :set_test_result, only: %i[ show edit update destroy ]
+  before_action :set_test_result, only: %i[ show edit update destroy  generate_pdf]
 
   # GET /test_results or /test_results.json
   def index
@@ -55,6 +55,18 @@ class TestResultsController < FrontBaseController
       format.html { redirect_to test_results_path, status: :see_other, notice: "Test result was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def generate_pdf
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string('test_results/generate_pdf', layout: 'pdf'),
+      { 
+        page_size: 'A4', margin: { top: 25, bottom: 10, left: 0, right: 0 },
+        header: { content: render_to_string('test_results/header', layout: 'pdf') }
+      }
+    )
+
+    send_data(pdf, filename: 'your_pdf.pdf', type: 'application/pdf', disposition: 'inline')
   end
 
   private

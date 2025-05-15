@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   get "file_uploads/upload"
-  resources :test_results
+  resources :test_results do 
+    member do
+      get :generate_pdf
+    end
+  end
+
+
+  namespace :api do
+    post 'test_result_upload', to: 'test_results#test_result_upload'
+  end
   
   resources :lab_tests do 
     resources :test_parameters  do 
