@@ -16,7 +16,7 @@ class TestParametersTest < ApplicationSystemTestCase
 
     fill_in "Cause effect", with: @test_parameter.cause_effect
     fill_in "Description", with: @test_parameter.description
-    fill_in "Did you konw", with: @test_parameter.did_you_konw
+    fill_in "Did you konw", with: @test_parameter.did_you_know
     fill_in "Key", with: @test_parameter.key
     fill_in "Name", with: @test_parameter.name
     fill_in "What can do", with: @test_parameter.what_can_do
@@ -32,7 +32,7 @@ class TestParametersTest < ApplicationSystemTestCase
 
     fill_in "Cause effect", with: @test_parameter.cause_effect
     fill_in "Description", with: @test_parameter.description
-    fill_in "Did you konw", with: @test_parameter.did_you_konw
+    fill_in "Did you konw", with: @test_parameter.did_you_know
     fill_in "Key", with: @test_parameter.key
     fill_in "Name", with: @test_parameter.name
     fill_in "What can do", with: @test_parameter.what_can_do

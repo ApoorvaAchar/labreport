@@ -25,11 +25,15 @@
       <tr>
         <td><%= lab_test.name %> </td>
         <td><%= lab_test.key %> </td>
-        <td class='text-end'><%= link_to "Details", lab_test, class: 'btn btn-sm btn-primary' %> </td>
+        <td class='text-end'>
+        <%= link_to "Delete", lab_test, class: 'btn btn-sm btn-danger',method:'delete', data:{Confirm:"Are you sure?"}  %> 
+        <%= link_to "Details", lab_test, class: 'btn btn-sm btn-primary' %> </td>
       </tr>
     <%end%>
   </tbody>
 </table>
+
+
 
 
  

@@ -17,7 +17,7 @@ class TestParametersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create test_parameter" do
     assert_difference("TestParameter.count") do
-      post test_parameters_url, params: { test_parameter: { cause_effect: @test_parameter.cause_effect, description: @test_parameter.description, did_you_konw: @test_parameter.did_you_konw, key: @test_parameter.key, name: @test_parameter.name, what_can_do: @test_parameter.what_can_do } }
+      post test_parameters_url, params: { test_parameter: { cause_effect: @test_parameter.cause_effect, description: @test_parameter.description, did_you_know: @test_parameter.did_you_know, key: @test_parameter.key, name: @test_parameter.name, what_can_do: @test_parameter.what_can_do } }
     end
 
     assert_redirected_to test_parameter_url(TestParameter.last)
@@ -34,7 +34,7 @@ class TestParametersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update test_parameter" do
-    patch test_parameter_url(@test_parameter), params: { test_parameter: { cause_effect: @test_parameter.cause_effect, description: @test_parameter.description, did_you_konw: @test_parameter.did_you_konw, key: @test_parameter.key, name: @test_parameter.name, what_can_do: @test_parameter.what_can_do } }
+    patch test_parameter_url(@test_parameter), params: { test_parameter: { cause_effect: @test_parameter.cause_effect, description: @test_parameter.description, did_you_know: @test_parameter.did_you_know, key: @test_parameter.key, name: @test_parameter.name, what_can_do: @test_parameter.what_can_do } }
     assert_redirected_to test_parameter_url(@test_parameter)
   end
 

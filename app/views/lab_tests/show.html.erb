@@ -23,6 +23,7 @@
       <div class='float-end'>
         <%= link_to "Edit Parameter", edit_lab_test_test_parameter_path(@lab_test, test_parameter) %>
         <%= link_to "Add Ref Range", new_lab_test_test_parameter_parameter_ref_range_path(@lab_test, test_parameter) %>
+        <%= link_to "Delete", lab_test_test_parameter_path(@lab_test, test_parameter),method:'delete', data:{confirm:"Are you sure?"},class:'text-danger'%>
       </div>
     </div>
 
@@ -44,8 +45,8 @@
         </div>
 
         <div>
-          <p class='mb-0'><b>did_you_konw</b></p>
-          <%= test_parameter.did_you_konw.to_s.html_safe %>
+          <p class='mb-0'><b>did_you_know</b></p>
+          <%= test_parameter.did_you_know.to_s.html_safe %>
         </div>
 
       </div>  

@@ -53,7 +53,7 @@ class TestParametersController < FrontBaseController
     @test_parameter.destroy!
 
     respond_to do |format|
-      format.html { redirect_to test_parameters_path, status: :see_other, notice: "Test parameter was successfully destroyed." }
+      format.html { redirect_to @lab_test, status: :see_other, notice: "Test parameter was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,6 +66,6 @@ class TestParametersController < FrontBaseController
 
     # Only allow a list of trusted parameters through.
     def test_parameter_params
-      params.require(:test_parameter).permit(:description, :name, :key, :cause_effect, :what_can_do, :did_you_konw, :parameter_type)
+      params.require(:test_parameter).permit(:description, :name, :key, :cause_effect, :what_can_do, :did_you_know, :parameter_type)
     end
 end
