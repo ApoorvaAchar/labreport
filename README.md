@@ -22,3 +22,28 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+curl -X POST http://localhost:3000/api/test_result_upload   -H "Content-Type: application/json"   -d '{
+    "patient": {
+      "name": "John Doe",
+      "gender": "Male",
+      "age": 30,
+      "test_done_at": "2025-05-14T10:00:00Z",
+      "patient_no": "P12345"
+    },
+    "test_result": [
+      {
+        "result": "Positive",
+        "key": "",
+        "unit": "N/A",
+        "name": "COVID-19 PCR Test"
+      },
+      {
+        "result": "100",
+        "key": "",
+        "unit": "mg/dL",
+        "name": "Fasting Blood Sugar"
+      }
+    ]
+  }'
