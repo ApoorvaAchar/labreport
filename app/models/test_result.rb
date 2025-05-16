@@ -19,7 +19,7 @@ class TestResult < ApplicationRecord
 	    		parameter_ref_range = nil
 
 	    		if test_parameter.parameter_type == 'string'
-	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where(result: "").first
+	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where(result: tr["result"]).first
 	    		else
 	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where('? BETWEEN lower_limit AND upper_limit', tr["result"].to_f).order(:id).first
 	    		end
@@ -29,9 +29,9 @@ class TestResult < ApplicationRecord
 	        end
 	      end
 
-        hash[test_parameter.lab_test_id.to_s] ||= []
-        j = { result: result, unit: (tr["unit"] rescue ""), test_parameter: test_parameter, parameter_ref_range: parameter_ref_range }
-        hash[test_parameter.lab_test_id.to_s] << j
+			hash[test_parameter.lab_test_id.to_s] ||= []
+			j = { result: tr["result"], unit: (tr["unit"] rescue ""), test_parameter: test_parameter, parameter_ref_range: parameter_ref_range }
+			hash[test_parameter.lab_test_id.to_s] << j
     	end
     end
     hash
