@@ -25,18 +25,38 @@ class TestResult < ApplicationRecord
 	    		else
 	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where('? BETWEEN lower_limit AND upper_limit', tr["result"].to_f).order(:id).first
 	    		end
-
-	        unless parameter_ref_range.blank?
-	        else
-	        end
 	      end
 
-			hash[test_parameter.lab_test_id.to_s] ||= []
-			j = { result: tr["result"], unit: (tr["unit"] rescue ""), test_parameter: test_parameter, parameter_ref_range: parameter_ref_range }
-			hash[test_parameter.lab_test_id.to_s] << j
+				hash[test_parameter.lab_test_id.to_s] ||= []
+				j = { result: tr["result"], unit: (tr["unit"] rescue ""), test_parameter: test_parameter, parameter_ref_range: parameter_ref_range }
+				hash[test_parameter.lab_test_id.to_s] << j
     	end
     end
     hash
+	end
+
+
+	def out_of_range_data
+		array = []
+    unless result.blank?
+    	result["test_result"].each do |tr|
+    		test_parameter =  TestParameter.find_by_key(tr["key"])
+
+    		unless test_parameter.blank?
+	    		parameter_ref_range = nil
+
+	    		if test_parameter.parameter_type == 'string'
+	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where(result: tr["result"]).first
+	    		else
+	    			parameter_ref_range = test_parameter.parameter_ref_ranges.where('? BETWEEN lower_limit AND upper_limit', tr["result"].to_f).order(:id).first
+	    		end
+
+					j = { result: tr["result"], unit: (tr["unit"] rescue ""), test_parameter: test_parameter, parameter_ref_range: parameter_ref_range }
+					array << j
+	      end
+    	end
+    end
+		array
 	end 
 
 

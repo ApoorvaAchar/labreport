@@ -1,0 +1,41 @@
+<%- out_range_data = @test_result.out_of_range_data %>
+
+<%- total_length = out_range_data.length - 1 %>
+
+<% out_range_data.each_with_index do |ar, index| %>
+  <%- test_parameter = ar[:test_parameter] %>
+  <div style="padding: 20px;">
+    
+    <table class='gray-font' style="width: 100%;">
+      <tr>
+        <td colspan="3">
+          <div class='main-head'><%= test_parameter.name %></div>
+
+          <div class='sub-head'>
+             Result : 
+             <span class='result'><%= ar[:result]%></span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width: 32%;">
+          <%= test_parameter.description.to_s.html_safe %>
+        </td>
+        <td style="width: 32%;">
+          <div class='rep-head'>Cause / Effect of these parameters</div>
+          <%= test_parameter.cause_effect.to_s.html_safe %>
+        </td>
+        <td style="width: 32%;">
+          <div class='rep-head'>What can you do about it?</div>
+          <%= test_parameter.what_can_do.to_s.html_safe %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <% if index !=  total_length%>
+    <div class='alwaysbreak'></div> </div>
+  <%end%>  
+<%end%>

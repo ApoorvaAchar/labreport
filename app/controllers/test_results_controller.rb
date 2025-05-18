@@ -63,9 +63,9 @@ class TestResultsController < FrontBaseController
 
   def generate_pdf
     pdf = WickedPdf.new.pdf_from_string(
-      render_to_string('test_results/generate_pdf', layout: 'pdf', locals: { test_result: @test_result }),
+      render_to_string('test_results/generate_pdf', layout: 'pdf', :object => @test_result),
       { 
-        page_size: 'A4', margin: { top: 25, bottom: 10, left: 0, right: 0 },
+        page_size: 'A4', margin: { top: 35, bottom: 10, left: 0, right: 0 },
         header: { content: render_to_string('test_results/header', layout: 'pdf', locals: { test_result: @test_result }) }
       }
     )
