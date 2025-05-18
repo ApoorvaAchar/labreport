@@ -4,7 +4,8 @@
 </div> 
 
 <div class='float-end'>
-  <%= link_to "Generate PDF", generate_pdf_test_result_path(@test_result), class: 'btn btn-sm btn-success', target: "_blank" %>
+  <%= link_to "Print PDF", @test_result.pdf.url, class: 'btn btn-sm btn-success', target: "_blank" %>
+  <%= link_to "Re-Generate PDF", generate_pdf_test_result_path(@test_result), class: 'btn btn-sm btn-primary', target: "_blank" %>
   <%= link_to "Back", test_results_path, class: 'btn btn-sm btn-dark' %>
 </div>
 

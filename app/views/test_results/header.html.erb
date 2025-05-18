@@ -1,13 +1,13 @@
 <div class="container">
   <div class="header">
     <div class="header-left">
-      <h1 class='test-header-pp'><%= @test_result.patient_name %></h1>
-      <p class="accession-no"><%= @test_result.patient_no %></p>
+      <h1 class='test-header-pp'><%= test_result.patient_name %></h1>
+      <p class="accession-no"><%= test_result.patient_no %></p>
     </div>
     <div class="header-right">
     	<div style="margin-top: 10px">
-      	<p class="basic-info"><%= @test_result.gender %> | <%= @test_result.age %></p>
-      	<p class="date-of-test"><%= datetime_format(@test_result.test_done_at) %></p>
+      	<p class="basic-info"><%= test_result.gender %> | <%= test_result.age %></p>
+      	<p class="date-of-test"><%= (test_result.test_done_at.to_time.strftime("%d-%m-%Y %I:%M %p") rescue "") %></p>
       </div>
     </div>
 

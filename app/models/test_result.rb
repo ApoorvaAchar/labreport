@@ -4,6 +4,8 @@ class TestResult < ApplicationRecord
 
 	before_create :generate_uuid
 
+	after_create :add_task_to_background
+
 	def generate_uuid
     self.uuid = SecureRandom.uuid
 	end
@@ -52,6 +54,10 @@ class TestResult < ApplicationRecord
 
 	def patient_no
 		result["patient"]["patient_no"] rescue ""
+	end
+
+	def add_task_to_background
+		SidekiqGenerateTestResultPdf.perform_async({ record_id: id }.deep_stringify_keys)
 	end
 
 
