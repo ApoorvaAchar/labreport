@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "file_uploads/upload"
   resources :test_results do 
     member do
-      get :generate_pdf
+      get :generate_pdf, :print_pdf
     end
   end
 

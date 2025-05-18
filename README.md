@@ -47,3 +47,10 @@ curl -X POST http://localhost:3000/api/test_result_upload   -H "Content-Type: ap
       }
     ]
   }'
+
+
+
+
+In terminal -> Inside application folder 
+
+bundle exec sidekiq
